@@ -32,83 +32,96 @@
         >
       </div>
     </div>
-    <form #registrationForm="ngForm" novalidate (ngSubmit)="saveParticipant()">
-      <div class="col-sm-12 mt-2 mb-1">
-        <div class="form-group sameline">
-          <label for="firstName" class="form-label myLabel">First Name</label>
-          <input
-            type="text"
-            class="form-control mytextbox"
-            id="agentName"
-            aria-describedby="firstName"
-            [(ngModel)]="participantModel.firstName"
-            name="firstName"
-          />
-        </div>
-      </div>
-      <div class="col-sm-12 mt-2 mb-1">
-        <div class="form-group sameline">
-          <label for="lastName" class="form-label myLabel">Last Name</label>
-          <input
-            type="text"
-            class="form-control mytextbox"
-            id="lastName"
-            aria-describedby="lastName"
-            [(ngModel)]="participantModel.lastName"
-            name="lastName"
-          />
-        </div>
-      </div>
 
-      <div class="col-sm-12 mt-1 mb-1">
-        <div class="form-group sameline">
-          <label for="DOB" class="myLabel">Date of Birth</label>
+    <div *ngFor="let controls of control">
+      <div *ngIf="controls.registrationOpen">
+        <form
+          #registrationForm="ngForm"
+          novalidate
+          (ngSubmit)="saveParticipant()"
+        >
+          <div class="col-sm-12 mt-2 mb-1">
+            <div class="form-group sameline">
+              <label for="firstName" class="form-label myLabel"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control mytextbox"
+                id="agentName"
+                aria-describedby="firstName"
+                [(ngModel)]="participantModel.firstName"
+                name="firstName"
+              />
+            </div>
+          </div>
+          <div class="col-sm-12 mt-2 mb-1">
+            <div class="form-group sameline">
+              <label for="lastName" class="form-label myLabel">Last Name</label>
+              <input
+                type="text"
+                class="form-control mytextbox"
+                id="lastName"
+                aria-describedby="lastName"
+                [(ngModel)]="participantModel.lastName"
+                name="lastName"
+              />
+            </div>
+          </div>
 
-          <input
-            type="date"
-            id="DOB"
-            name="DOB"
-            class="form-control mytextbox"
-            [(ngModel)]="participantModel.DOB"
-            min="1950-01-01"
-            max="2018-12-31"
-          />
-        </div>
+          <div class="col-sm-12 mt-1 mb-1">
+            <div class="form-group sameline">
+              <label for="DOB" class="myLabel">Date of Birth</label>
+
+              <input
+                type="date"
+                id="DOB"
+                name="DOB"
+                class="form-control mytextbox"
+                [(ngModel)]="participantModel.DOB"
+                min="1950-01-01"
+                max="2018-12-31"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-12 mt-1 mb-1">
+            <div class="form-group sameline">
+              <label for="email" class="form-label myLabel"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control mytextbox"
+                id="email"
+                aria-describedby="email"
+                [(ngModel)]="participantModel.email"
+                name="email"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-12 mt-1 mb-1">
+            <div class="form-group sameline">
+              <label for="paymentInfo" class="form-label myLabel"
+                >Payment Option</label
+              >
+              <select
+                class="form-control mytextbox"
+                id="paymentInfo"
+                [(ngModel)]="participantModel.paymentInfo"
+                name="paymentInfo"
+              >
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Register Now</button>
+        </form>
       </div>
-
-      <div class="col-sm-12 mt-1 mb-1">
-        <div class="form-group sameline">
-          <label for="email" class="form-label myLabel">Email address</label>
-          <input
-            type="email"
-            class="form-control mytextbox"
-            id="email"
-            aria-describedby="email"
-            [(ngModel)]="participantModel.email"
-            name="email"
-          />
-        </div>
-      </div>
-
-      <div class="col-sm-12 mt-1 mb-1">
-        <div class="form-group sameline">
-          <label for="paymentInfo" class="form-label myLabel"
-            >Payment Option</label
-          >
-          <select
-            class="form-control mytextbox"
-            id="paymentInfo"
-            [(ngModel)]="participantModel.paymentInfo"
-            name="paymentInfo"
-          >
-            <option>Credit Card</option>
-            <option>Debit Card</option>
-          </select>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Register Now</button>
-    </form>
+    </div>
   </div>
 </div>
 
