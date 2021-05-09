@@ -1,0 +1,63 @@
+<div class="card mt-5 mt-3">
+  <div class="card-body">
+    <h2>Marathon Organizer</h2>
+
+    <form #controlForm="ngForm" novalidate (ngSubmit)="saveEvent()">
+      <div class="col-sm-12 mt-1 mb-1">
+        <div class="form-check form-switch form-group">
+          <label class="form-check-label" for="registrationOpen"
+            >Registration Open?</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="registrationOpen"
+            aria-describedby="registrationOpen"
+            [(ngModel)]="controlModel.registrationOpen"
+            name="video"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-12 mt-1 mb-1">
+        <div class="form-check form-switch form-group">
+          <label class="form-check-label" for="displayInfo"
+            >Show event info to Participants</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="displayInfo"
+            aria-describedby="displayInfo"
+            [(ngModel)]="controlModel.displayInfo"
+            name="displayInfo"
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+
+      <div class="container mt-5">
+        <h2>Participant Details</h2>
+        <table class="table">
+          <thead>
+            <th>Participant Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Payment Info</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let participant of participants">
+              <td>{{ participant.firstName }}</td>
+              <td>{{ participant.email }}</td>
+              <td>{{ participant.DOB }}</td>
+              <td>{{ participant.paymentInfo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

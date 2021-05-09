@@ -1,0 +1,22 @@
+.invalidForm {
+  border-radius: 3px;
+  border-color: red;
+}
+
+.mytextbox {
+  margin-left: 30px;
+  width: 300px;
+}
+
+.sameline {
+  display: flex;
+}
+
+.myLabel {
+  width: 300px;
+}
+
+.scrollHeight {
+  height: 86px;
+  font-size: 65px;
+}
