@@ -39,11 +39,30 @@
 
       <div class="container mt-5">
         <h2>Participant Details</h2>
+
+        <div class="col-sm-12 mt-1 mb-1">
+          <div class="form-group sameline">
+            <label for="filterDate" class="myLabel"
+              >Filter Summary by Payment Date</label
+            >
+
+            <input
+              type="date"
+              id="filterDate"
+              name="filterDate"
+              class="form-control mytextbox"
+              [(ngModel)]="filterDate"
+              min="2021-01-01"
+              max="2021-05-12"
+            />
+          </div>
+        </div>
         <table class="table">
           <thead>
             <th>Participant Name</th>
             <th>Email</th>
             <th>DOB</th>
+            <th>Payment Date</th>
             <th>Payment Info</th>
             <th></th>
             <th></th>
@@ -53,6 +72,7 @@
               <td>{{ participant.firstName }}</td>
               <td>{{ participant.email }}</td>
               <td>{{ participant.DOB }}</td>
+              <td>{{ participant.creation_dt | slice: 0:10 }}</td>
               <td>{{ participant.paymentInfo }}</td>
             </tr>
           </tbody>

@@ -4,4 +4,5 @@ export class Participant {
   public DOB?: string;
   public email?: string;
   public paymentInfo?: string;
+  public creation_dt?: string;
 }
